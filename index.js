@@ -1,5 +1,5 @@
+require('dotenv').config()
 import express from 'express'
-// import { PORT, mongoDBURL } from './.env'
 // import { corsAllowed} from './.env'
 import mongoose from 'mongoose'
 import { Todo } from './models/todo.js'
@@ -101,11 +101,11 @@ app.delete('/todos/:id', async (req, res) => {
 })
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(process.env.mongoDBURL)
   .then(() => {
     console.log('App connected to database');
     app.listen(PORT, () => {
-      console.log(`App is listening on port: ${PORT}`)
+      console.log(`App is listening on port: ${process.env.PORT}`)
     })
   })
   .catch((err) => {
