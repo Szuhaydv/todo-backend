@@ -1,4 +1,4 @@
-require('dotenv').config()
+import dotenv from "dotenv"
 import express from 'express'
 // import { corsAllowed} from './.env'
 import mongoose from 'mongoose'
@@ -6,7 +6,7 @@ import { Todo } from './models/todo.js'
 import cors from 'cors'
 
 const app = express()
-
+dotenv.config()
 app.use(express.json())
 
 app.use(cors())
