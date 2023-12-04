@@ -12,14 +12,14 @@ const verifyCallback = (username, password, done) => {
     User.findOne({ username: username })
         .then((user) => {
 
-            if (!user) { return done(null, false) }
+            if (!user) { return done(null, false, {message: "No user found!"}) }
             
             const isValid = validPassword(password, user.hash, user.salt);
             
             if (isValid) {
-                return done(null, user);
+                return done(null, user, {message: "Success, correct credentials!"});
             } else {
-                return done(null, false);
+                return done(null, false, {message: "Incorrect username or password!"});
             }
         })
         .catch((err) => {   
@@ -28,7 +28,7 @@ const verifyCallback = (username, password, done) => {
 
 }
 
-const strategy  = new LocalStrategy({usernameField: "username", passwordField: "password"}, verifyCallback);
+const strategy  = new LocalStrategy({username: "username", password: "password"}, verifyCallback);
 
 passport.use(strategy);
 
