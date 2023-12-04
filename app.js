@@ -56,7 +56,7 @@ import './config/passport.js'
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/login', passport.authenticate('local', { successRedirect: "/", failureRedirect: '/login', }), (req,res,next) => {
+app.post('/login', passport.authenticate('local', { successRedirect: "/todos", failureRedirect: '/login', }), (req,res,next) => {
   return res.status(200).send({message: req.session})
 })
 
