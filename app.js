@@ -12,6 +12,7 @@ const genPassword = passwordUtils.genPassword
 // const User = mongoose.connection.models.User;
 import isAuth from './routes/authMiddleware.js'
 import { User, Todo } from './models/user.js'
+import cookieParser from "cookie-parser"
 
 dotenv.config()
 const app = express()
@@ -32,6 +33,7 @@ const corsAllowed = {
 }
 
 app.use(cors(corsAllowed))
+app.use(cookieParser())
 
 const MongoStore = MongoDBStore(session)
 
