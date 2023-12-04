@@ -49,7 +49,7 @@ import './config/passport.js'
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/login', passport.authenticate('local', function (err, account) {
+app.post('/login', cors(), passport.authenticate('local', function (err, account) {
   req.logIn(account, function() {
       res.status(err ? 500 : 200).send(err ? err : account);
   })
