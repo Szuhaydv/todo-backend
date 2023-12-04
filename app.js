@@ -116,6 +116,7 @@ app.post('/todos', isAuth, async (req, res) => {
 
 app.get('/todos', isAuth, async (req, res) => {
   try {
+    return res.send(req.user.username)
     const todos = await Todo.find({ author: req.user.username})
     return res.status(200).json({
       count: todos.length,
