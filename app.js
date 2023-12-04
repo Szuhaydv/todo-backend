@@ -57,7 +57,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }), (req,res,next) => {
-  return res.status(200).send({message: "Successful login!"})
+  return res.status(200).send({message: req.user})
 })
 
 app.post('/register', async (req, res, next) => {
