@@ -17,17 +17,14 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(cors())
 
-// app.use(cors(corsAllowed))
-// export const corsAllowed = {
-//     origin: {
-//       'http://localhost:5173',
-//       'http://netlify.com' 
-//     },
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowHeaders: ['Content-Type']
-//   }
+const corsAllowed = {
+    origin: 'https://todo-backend1-0rrs.onrender.com/login',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowHeaders: ['Content-Type']
+}
+
+app.use(cors(corsAllowed))
 
 const MongoStore = MongoDBStore(session)
 
@@ -49,7 +46,7 @@ import './config/passport.js'
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/login', cors(), passport.authenticate('local', {failureMessage: "Login unsuccessful!"}), (req, res) => {
+app.post('/login', passport.authenticate('local', {failureMessage: "Login unsuccessful!"}), (req, res) => {
     return res.status(200).send({message: "Successful login!"})
   } 
 )
