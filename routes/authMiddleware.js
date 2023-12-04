@@ -1,6 +1,6 @@
 const isAuth = (req, res, next) => {
-  if (req.isAuthenticated()) {
-      res.status(123).send(req.session)
+  if (req.user) {
+      res.status(123).send("hallelujah")
   } else {
       res.status(401).json(req.session || "None");
   }
