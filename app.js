@@ -116,7 +116,10 @@ app.post('/todos', isAuth, async (req, res) => {
   }
 })
 
-app.get('/todos', isAuth, async (req, res) => {
+app.get('/todos', async (req, res) => {
+  if (req.user) {
+    console.log("HELJSOGIJ")
+  }
   try {
     const todos = await Todo.find({ author: req.user.username})
     return res.status(200).json({
