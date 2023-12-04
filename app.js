@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 const corsAllowed = {
-    origin: 'https://todo-backend1-0rrs.onrender.com/login',
+    origin: 'https://todo-frontend-q9k5.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowHeaders: ['Content-Type']
 }
