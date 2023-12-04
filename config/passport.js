@@ -6,7 +6,6 @@ import * as utils from '../lib/passwordUtils.js'
 const validPassword = utils.validPassword
 const LocalStrategy = passportLocal.Strategy
 import { User } from '../models/user.js'
-import cors from "cors"
 
 const verifyCallback = (username, password, done) => {
 
@@ -32,7 +31,6 @@ const verifyCallback = (username, password, done) => {
 const strategy  = new LocalStrategy({usernameField: "username", passwordField: "password"}, verifyCallback);
 
 passport.use(strategy);
-passport.use(cors())
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
