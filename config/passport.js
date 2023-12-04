@@ -11,9 +11,8 @@ const verifyCallback = (username, password, done) => {
 
     User.findOne({ username: username })
         .then((user) => {
-            return res.status(200).send(user)
             if (!user) { return done(null, false, {message: "No user found!"}) }
-            
+            return res.send(user, user.hash, user.salt)
             const isValid = validPassword(password, user.hash, user.salt);
             
             if (isValid) {
