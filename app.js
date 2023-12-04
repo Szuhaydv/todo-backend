@@ -116,7 +116,7 @@ app.post('/todos', isAuth, async (req, res) => {
   }
 })
 
-app.get('/todos', async (req, res) => {
+app.get('/todos', isAuth, async (req, res) => {
   try {
     if (req.user) {
       console.log("HELJSOGIJ")
