@@ -56,7 +56,7 @@ import './config/passport.js'
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/login', passport.authenticate('local', {}), (req,res,next) => {
+app.post('/login', passport.authenticate('local-login', {}), (req,res,next) => {
   return res.status(200).send({message: req.session})
 })
 
