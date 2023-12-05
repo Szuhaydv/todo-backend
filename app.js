@@ -52,7 +52,8 @@ app.use((req, res, next) => {
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: false,
         sameSite: 'none',
-        secure: true
+        secure: true,
+        domain: 'https://todo-frontend-q9k5.onrender.com'
     }
 }));
 
