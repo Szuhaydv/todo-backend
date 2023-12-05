@@ -36,7 +36,11 @@ app.use(cors(corsAllowed))
 
 const MongoStore = MongoDBStore(session)
 
-app.use(session({
+app.use((req, res, next) => {
+  console.log("Cookie about to be set")
+  next()
+},
+  session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
@@ -48,7 +52,7 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: false,
         sameSite: 'none',
-        secure: true
+        // secure: true
     }
 }));
 
@@ -98,6 +102,7 @@ app.get('/logout', (req, res, next) => {
 
 app.post('/todos', isAuth, async (req, res) => {
   try {
+    console.log("HAHAHA")
     if (!req.body.name || !req.user) {
       return res.status(400).send({
         message: 'Give a name to the todo'
@@ -112,7 +117,7 @@ app.post('/todos', isAuth, async (req, res) => {
     return res.status(201).send(todo)
   } catch (err) {
     console.log(err.message)
-    res.status(500).send({ message: err.message })
+    return res.status(500).send({ message: err.message })
   }
 })
 

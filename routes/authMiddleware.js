@@ -1,8 +1,8 @@
 const isAuth = (req, res, next) => {
-  if (req.user) {
-      res.status(123).send("hallelujah")
+  if (req.isAuthenticated()) {
+      next()
   } else {
-      res.status(401).json(req.session || "None");
+      res.status(401).json({msg: "You are not authorized to view this source!"});
   }
 }
 

@@ -32,11 +32,16 @@ const strategy  = new LocalStrategy(verifyCallback);
 passport.use(strategy);
 
 passport.serializeUser((user, done) => {
-    done(null, user._id);
+    console.log("SEri")
+    done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
-    User.findById(user._id, (err,user) => {
-        done(err,user)
-    })
+passport.deserializeUser(async (id, done) => {
+    try {
+        console.log("Deseri")
+        const user = await User.findById(id);
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
 });
