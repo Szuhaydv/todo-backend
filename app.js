@@ -28,7 +28,7 @@ const corsAllowed = {
       'http://localhost:5173'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'Authorization'],
+    allowHeaders: ['*'],
     credentials: true 
 }
 
