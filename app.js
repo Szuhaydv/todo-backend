@@ -19,16 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 const corsAllowed = {
-    origin: [
-      'https://todo-frontend-q9k5.onrender.com',
-      'https://todo-frontend-q9k5.onrender.com/add',
-      'https://todo-frontend-q9k5.onrender.com/login',
-      'https://todo-frontend-q9k5.onrender.com/register',
-      'https://todo-frontend-q9k5.onrender.com/:id',
-      'http://localhost:5173',
-      'https://todo-backend1-0rrs.onrender.com',
-      'https://mylittletodo.site/'
-    ],
+    origin: ['*'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['*'],
     credentials: true 
