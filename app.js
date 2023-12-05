@@ -26,7 +26,8 @@ const corsAllowed = {
       'https://todo-frontend-q9k5.onrender.com/register',
       'https://todo-frontend-q9k5.onrender.com/:id',
       'http://localhost:5173',
-      'https://todo-backend1-0rrs.onrender.com'
+      'https://todo-backend1-0rrs.onrender.com',
+      'https://mylittletodo.site/'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['*'],
