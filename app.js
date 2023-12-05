@@ -40,7 +40,8 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "none",
+        secure: true,
         domain: 'todo-backend1-0rrs.onrender.com'
     }
 }));
