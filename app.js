@@ -42,6 +42,7 @@ app.use(session({
         httpOnly: true,
         sameSite: 'none',
         secure: true,
+        domain: 'https://mylittletodo.site'
     }
 }));
 
