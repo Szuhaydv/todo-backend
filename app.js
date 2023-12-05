@@ -40,8 +40,8 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: true,
-        sameSite: "none",
-        secure: true
+        sameSite: false,
+        domain: 'mylittletodo.site'
     }
 }));
 
