@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 const corsAllowed = {
-    origin: ['*'],
+    origin: ['https://mylittletodo.site/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['*'],
     credentials: true 
