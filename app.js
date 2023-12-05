@@ -27,7 +27,7 @@ const corsAllowed = {
       'https://todo-frontend-q9k5.onrender.com/:id',
       'http://localhost:5173'
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],
     credentials: true 
 }
