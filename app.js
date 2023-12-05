@@ -36,11 +36,7 @@ app.use(cors(corsAllowed))
 
 const MongoStore = MongoDBStore(session)
 
-app.use((req, res, next) => {
-  console.log("Cookie about to be set")
-  next()
-},
-  session({
+app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
@@ -53,7 +49,6 @@ app.use((req, res, next) => {
         httpOnly: false,
         sameSite: 'none',
         secure: true,
-        domain: 'https://todo-frontend-q9k5.onrender.com'
     }
 }));
 
@@ -103,8 +98,7 @@ app.get('/logout', (req, res, next) => {
 
 app.post('/todos', isAuth, async (req, res) => {
   try {
-    console.log("HAHAHA")
-    if (!req.body.name || !req.user) {
+    if (!req.body.name) {
       return res.status(400).send({
         message: 'Give a name to the todo'
       })
