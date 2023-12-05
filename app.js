@@ -42,7 +42,8 @@ app.use(session({
         httpOnly: true,
         sameSite: "none",
         secure: true,
-        domain: 'todo-backend1-0rrs.onrender.com'
+        domain: 'todo-backend1-0rrs.onrender.com',
+        path: '/login'
     }
 }));
 
