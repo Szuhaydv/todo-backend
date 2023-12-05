@@ -41,7 +41,7 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: true,
         sameSite: false,
-        domain: 'todo-backend1-0rrs.onrender.com/todos.com'
+        domain: 'todo-backend1-0rrs.onrender.com'
     }
 }));
 
